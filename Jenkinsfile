@@ -45,21 +45,21 @@ pipeline {
                 //     // Perform actions in the custom workspace
                 // }
                 // Example of using a Docker agent
-                docker.image('maven:3.6.3-jdk-11').inside {
-                    echo 'Running inside a Docker container...'
-                    // Perform actions inside the Docker container
-                }
+                // docker.image('maven:3.6.3-jdk-11').inside {
+                //     echo 'Running inside a Docker container...'
+                //     // Perform actions inside the Docker container
+                // }
                 // Example of using a parallel stage
-                parallel(
-                    stage1: {
-                        echo 'Running stage 1...'
-                        // Perform actions for stage 1
-                    },
-                    stage2: {
-                        echo 'Running stage 2...'
-                        // Perform actions for stage 2
-                    }
-                )
+                // parallel(
+                //     stage1: {
+                //         echo 'Running stage 1...'
+                //         // Perform actions for stage 1
+                //     },
+                //     stage2: {
+                //         echo 'Running stage 2...'
+                //         // Perform actions for stage 2
+                //     }
+                // )
                 // Example of using a matrix stage
                 // matrix {
                 //     axes {
