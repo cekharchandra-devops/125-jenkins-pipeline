@@ -33,6 +33,7 @@ pipeline {
                 echo 'Building...'
                 echo 'sleeping for 5 seconds...'
                 sleep 110
+                sh exit 1
                 script {
                     // Example of using environment variables and parameters
                     echo "MY_ENV_VAR: ${env.MY_ENV_VAR}"
