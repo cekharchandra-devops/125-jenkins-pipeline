@@ -30,6 +30,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                retry(3) { // Retry the build stage up to 3 times on failure
+                    echo 'Building...'
+                    sh exit 1 // Simulate a build failure
+                    // Example of using a custom workspace
+                    // dir('my-custom-workspace') {
+                    //     echo 'Using custom workspace...'
+                    //     // Perform actions in the custom workspace
+                    // }
+                }
                 echo 'Building...'
                 echo 'sleeping for 5 seconds...'
                 sleep 110
@@ -119,7 +128,7 @@ pipeline {
         // lock(resource: 'my-lock') {
         //     echo 'This will run with a lock on the resource.'
         // }
-        retry(3) 
+
         ansiColor('xterm')
     }
 }
