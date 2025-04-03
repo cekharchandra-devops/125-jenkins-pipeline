@@ -32,7 +32,7 @@ pipeline {
             steps {
                 retry(3) { // Retry the build stage up to 3 times on failure
                     echo 'Building...'
-                    sh exit 1 // Simulate a build failure
+                    error  'Build failed!' // Simulate a build failure
                     // Example of using a custom workspace
                     // dir('my-custom-workspace') {
                     //     echo 'Using custom workspace...'
