@@ -14,6 +14,15 @@ pipeline {
         booleanParam(name: 'MY_BOOLEAN', defaultValue: true, description: 'A boolean parameter')
         choice(name: 'MY_CHOICE', choices: ['Option 1', 'Option 2', 'Option 3'], description: 'A choice parameter')
     }
+
+    properties([
+         [$class: 'ParametersDefinitionProperty', parameterDefinitions: [
+            [$class: 'StringParameterDefinition', name: 'MY_PARAM', defaultValue: 'default', description: 'A string parameter'],
+            [$class: 'BooleanParameterDefinition', name: 'MY_BOOLEAN', defaultValue: true, description: 'A boolean parameter'],
+            [$class: 'ChoiceParameterDefinition', name: 'MY_CHOICE', choices: ['Option 1', 'Option 2', 'Option 3'], description: 'A choice parameter']
+        ]],
+    ])
+
     // triggers {
     //     cron('H 4 * * 1-5') // Run at 4 AM on weekdays
     //     pollSCM('H/15 * * * *') // Poll SCM every 15 minutes
@@ -30,6 +39,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
+                echo 'sleeping for 5 seconds...'
+                sleep 110
                 script {
                     // Example of using environment variables and parameters
                     echo "MY_ENV_VAR: ${env.MY_ENV_VAR}"
