@@ -5,10 +5,10 @@ pipeline {
     environment {
         MY_ENV_VAR = 'Hello, World!'
     }
-    tools {
-        maven 'Maven 3.6.3'
-        jdk 'JDK 11'
-    }
+    // tools {
+    //     maven 'Maven 3.6.3'
+    //     jdk 'JDK 11'
+    // }
     parameters {
         string(name: 'MY_PARAM', defaultValue: 'default', description: 'A string parameter')
         booleanParam(name: 'MY_BOOLEAN', defaultValue: true, description: 'A boolean parameter')
