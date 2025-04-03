@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'AGENT-1'
+    }
     environment {
         MY_ENV_VAR = 'Hello, World!'
     }
@@ -106,13 +108,13 @@ pipeline {
     options {
         timestamps()
         timeout(time: 1, unit: 'MINUTES') // Timeout after 1 minute
-        timeout(time: 1, unit: 'MINUTES', message: 'Pipeline timed out') // Custom timeout message
+        // timeout(time: 1, unit: 'MINUTES', message: 'Pipeline timed out') // Custom timeout message
         disableConcurrentBuilds()
         skipDefaultCheckout()
         buildDiscarder(logRotator(numToKeepStr: '5'))
-        lock(resource: 'my-lock') {
-            echo 'This will run with a lock on the resource.'
-        }
+        // lock(resource: 'my-lock') {
+        //     echo 'This will run with a lock on the resource.'
+        // }
         retry(3) {
             echo 'This will retry the stage up to 3 times if it fails.'
         }
