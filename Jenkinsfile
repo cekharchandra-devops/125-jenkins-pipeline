@@ -115,11 +115,7 @@ pipeline {
         // lock(resource: 'my-lock') {
         //     echo 'This will run with a lock on the resource.'
         // }
-        retry(3) {
-            echo 'This will retry the stage up to 3 times if it fails.'
-        }
-        ansiColor('xterm') {
-            echo 'This will run with ANSI color support.'
-        }
+        retry(3) 
+        ansiColor('xterm')
     }
 }
